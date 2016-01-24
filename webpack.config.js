@@ -2,7 +2,9 @@ var webpack = require('webpack'),
     CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 module.exports = {
-    entry: './src/app.js',
+    // 入口
+    entry: './src/main.js',
+    // 输出
     output: {
         path: './dist',
         filename: 'bundle.js'

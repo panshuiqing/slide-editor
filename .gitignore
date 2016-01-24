@@ -3,3 +3,6 @@
 
 # node moduls
 node_modules/
+
+# dist
+dist/
