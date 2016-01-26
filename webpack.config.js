@@ -14,8 +14,11 @@ module.exports = {
             test: /\.js$/,
             loader: "babel",
             query: {
-            	presets: ['es2015']
+                presets: ['es2015']
             }
+        }, {
+            test: /\.(tpl|ejs)$/,
+            loader: 'ejs'
         }, {
             test: /\.vue$/,
             loader: 'vue-loader'

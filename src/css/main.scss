@@ -1,8 +1,18 @@
-html, body {
-	margin: 0;
-	padding: 0;
+html,
+body {
+    margin: 0;
+    padding: 0;
 }
 
 body {
-	background: #F8F8F8;
+    background: #F8F8F8;
+}
+
+#toolbars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 170px;
+    height: 100%;
+    background: #333333;
 }

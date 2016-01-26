@@ -9,7 +9,9 @@ module.exports = {
 	/**
 	 * 初始化
 	 */
-	init: function() {
+	init: function(dom) {
 		require("!style!css!sass!./toolbar.scss");
+		var tpl = require('./toolbar.tpl');
+		document.getElementById(dom).innerHTML = tpl();
 	}	
 }
