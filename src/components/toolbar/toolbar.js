@@ -15,6 +15,10 @@ module.exports = {
 		var tpl = require('./toolbar.tpl');
 		$(dom).append(tpl());
 
+		// 初始化设置组件
+		var textCmp = require('../tool-setting/tool-setting.js');
+		textCmp.init('.toolbar-list');
+
 		// 初始化文本组件
 		var textCmp = require('../tool-text/tool-text.js');
 		textCmp.init('.toolbar-list');		
