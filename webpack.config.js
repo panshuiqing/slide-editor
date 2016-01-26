@@ -3,7 +3,7 @@ var webpack = require('webpack'),
 
 module.exports = {
     // 入口
-    entry: './src/main.js',
+    entry: './src/boot.js',
     // 输出
     output: {
         path: './dist',
@@ -21,7 +21,7 @@ module.exports = {
             loader: 'vue-loader'
         }, {
             test: /\.(css|scss)$/,
-            loader: 'style!css'
+            loader: 'style!css!sass-loader'
         }, {
             test: /\.(png|jpg)$/,
             loader: 'url?limit=8192' // 图片低于 8MB 时转换成 inline base64
