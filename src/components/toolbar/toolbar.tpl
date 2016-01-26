@@ -1,1 +1,3 @@
-<div class="toolbar-list"></div>
+<div id="toolbars">		
+	<div class="toolbar-list"></div>
+</div>
