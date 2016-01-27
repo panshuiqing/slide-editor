@@ -8,13 +8,20 @@
 </head>
 
 <body>
-	<div class="menu-wrapper"></div>
-	<div class="tool-wrapper"></div>
-	<div class="widget-wrapper"></div>	
-	<div class="edit-container">
-		<div class="edit-panel"></div>	
-	</div>	
+    <div class="menu-wrapper"></div>
+    <div class="tool-wrapper"></div>
+    <div class="widget-wrapper"></div>
+    <div class="edit-container">
+        <div class="edit-panel">
+
+            <div id="editor1" contenteditable="false" class='editDiv'>
+                <h1>Inline Editing in Action!</h1>
+                <p>The "div" element that contains this text is now editable.
+            </div>
+        </div>
+    </div>
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/ckeditor/4.5.4/ckeditor.js"></script>
     <script src="./dist/bundle.js"></script>
 </body>
 

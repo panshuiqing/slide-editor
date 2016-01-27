@@ -27,3 +27,11 @@ function resize() {
         winH = $(window).height();
     $('.edit-container').css('width', winW - 190 + 'px');
 }
+
+$('.editDiv').dblclick(function() {
+	$(this).attr('contenteditable', true);
+})
+
+$('.editDiv').click(function() {
+	$(this).css('border', '2px solid #20C7EC');
+})

@@ -4,7 +4,7 @@
  * @description 页码组件
  */
 
-module.exports = {
+module.exports = {          
 	
 	/**
 	 * 初始化
