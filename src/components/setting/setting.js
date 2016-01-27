@@ -12,7 +12,8 @@ module.exports = {
 	init: function(dom) {
 		require("!style!css!sass!./setting.scss");
 		var tpl = require('./setting.tpl');
-		//document.getElementById(dom).innerHTML = tpl();
 		$(dom).append(tpl());
+		var colorSet = require('../setting-color/setting-color.js');
+		colorSet.init('.slide-options');
 	}	
 }

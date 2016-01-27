@@ -1,50 +1,64 @@
-/* iconfont图标 */
-
-@font-face {
-  font-family: 'iconfont';
-  src: url('http://at.alicdn.com/t/font_1453895928_15822.eot'); /* IE9*/
-  src: url('http://at.alicdn.com/t/font_1453895928_15822.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('http://at.alicdn.com/t/font_1453895928_15822.woff') format('woff'), /* chrome、firefox */
-  url('http://at.alicdn.com/t/font_1453895928_15822.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('http://at.alicdn.com/t/font_1453895928_15822.svg#iconfont') format('svg'); /* iOS 4.1- */
-}                                                                          
-
-.iconfont {
-    font-family: "iconfont" !important;
-    font-size: 16px;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-html,
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-body {
-    background: #F8F8F8;
-    overflow: hidden;
-}
-
-.edit-container {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    left: 190px;
-    .edit-panel {
-        position: absolute;
-        width: 960px;
-        height: 700px;        
-        background: #FFF;
-        left: 50%;
-        top: 50%;
-        margin-left: -480px;
-        margin-top: -350px;
-        z-index: -1;
+    /* iconfont图标 */
+    
+    @font-face {
+        font-family: 'iconfont';
+        src: url('http://at.alicdn.com/t/font_1453900060_6816523.eot');
+        /* IE9*/
+        src: url('http://at.alicdn.com/t/font_1453900060_6816523.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('http://at.alicdn.com/t/font_1453900060_6816523.woff') format('woff'), /* chrome、firefox */
+        url('http://at.alicdn.com/t/font_1453900060_6816523.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url('http://at.alicdn.com/t/font_1453900060_6816523.svg#iconfont') format('svg');
+        /* iOS 4.1- */
     }
-}
+    
+    .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    
+    body {
+        background: #F8F8F8;
+        overflow: hidden;
+    }
+    
+    .edit-container {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        left: 190px;
+        z-index: 1;
+        .edit-panel {
+            position: absolute;
+            width: 960px;
+            height: 720px;
+            background: #FFF;
+            left: 50%;
+            top: 50%;
+            margin-left: -480px;
+            margin-top: -360px;
+            z-index: -1;
+        }
+    }
+    
+    @media screen and (max-width: 1400px) {
+        .edit-container {
+            .edit-panel {
+                width: 800px;
+                height: 600px;
+                margin-left: -400px;
+                margin-top: -300px;
+            }
+        }
+    }

@@ -10,9 +10,9 @@ toolbar.init('.tool-wrapper');
 // 引入设置组件
 var setting = require('./components/setting/setting.js');
 setting.init('.edit-panel');
-// 引入方向组件
-var arrow = require('./components/arrow/arrow.js');
-arrow.init('.edit-container');
+// 引入页码组件
+var page = require('./components/page/page.js');
+page.init('.widget-wrapper');
 
 // 自适应窗口变化
 resize();

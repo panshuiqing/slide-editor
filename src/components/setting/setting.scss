@@ -1,9 +1,21 @@
 .slide-options {
-	position: absolute;
-	width: 216px;
-	height: 34px;
-	background: #000;
-	opacity: 0.5;
-	right: 0;
-	top: -34px;
+    position: absolute;    
+    right: 0;
+    top: 0;
+    .slide-options-block {        
+        a {
+        	display: block;
+        	text-decoration: none;
+            color: #FFF;
+            background: #000;
+            opacity: 0.5;
+            width: 34px;
+    		height: 34px;
+    		text-align: center;
+    		line-height: 34px;
+    		i {
+    			font-size: 30px;
+    		}
+        }
+    }
 }

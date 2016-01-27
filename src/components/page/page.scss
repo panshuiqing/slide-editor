@@ -1,0 +1,19 @@
+.page-wrapper {
+    position: fixed;
+    bottom: 15px;
+    right: 50px;
+    font-size: 16px;
+    z-index: 2;
+    font-family: Arial;
+    a {
+    	text-decoration: none;
+    	color: #000;
+    	font-weight: bold;
+    }
+    .left-arrow {
+    	padding-right: 20px;
+    }
+    .right-arrow {
+    	padding-left: 20px;
+    }
+}
