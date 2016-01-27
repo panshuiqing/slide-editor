@@ -18,10 +18,13 @@ module.exports = {
 		var playMenu = require("../menu-play/menu-play.js");
 		playMenu.init('.menu-primary');
 		// 引入保存菜单
-		var playMenu = require("../menu-save/menu-save.js");
-		playMenu.init('.menu-primary');
-		// 引入保存菜单
-		var playMenu = require("../menu-collapse/menu-collapse.js");
-		playMenu.init('.menu-primary');
+		var saveMenu = require("../menu-save/menu-save.js");
+		saveMenu.init('.menu-primary');
+		// 引入折叠菜单
+		var collapseMenu = require("../menu-collapse/menu-collapse.js");
+		collapseMenu.init('.menu-primary');
+		// 引入更多菜单
+		var moreMenu = require("../menu-more/menu-more.js");
+		moreMenu.init('.menu-primary');
 	}	
 }
