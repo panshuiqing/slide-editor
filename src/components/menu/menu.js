@@ -26,5 +26,8 @@ module.exports = {
 		// 引入更多菜单
 		var moreMenu = require("../menu-more/menu-more.js");
 		moreMenu.init('.menu-primary');
+		// 引入添加菜单
+		var moreMenu = require("../menu-add/menu-add.js");
+		moreMenu.init('.menu-primary');
 	}	
 }
