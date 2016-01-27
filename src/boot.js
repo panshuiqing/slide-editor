@@ -1,8 +1,14 @@
 // 初始化整体样式
 require("!style!css!sass!./css/main.scss");
 
-// 引入组件
+// 引入菜单组件
+var menu = require('./components/menu/menu.js');
+menu.init('.menu-wrapper');
+
+// 引入工具条组件
 var toolbar = require('./components/toolbar/toolbar.js');
+
+// 引入设置组件
 var setting = require('./components/setting/setting.js');
 toolbar.init('.widget-wrapper');
 setting.init('.widget-wrapper');
