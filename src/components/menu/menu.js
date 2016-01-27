@@ -17,5 +17,11 @@ module.exports = {
 		// 引入观看菜单
 		var playMenu = require("../menu-play/menu-play.js");
 		playMenu.init('.menu-primary');
+		// 引入保存菜单
+		var playMenu = require("../menu-save/menu-save.js");
+		playMenu.init('.menu-primary');
+		// 引入保存菜单
+		var playMenu = require("../menu-collapse/menu-collapse.js");
+		playMenu.init('.menu-primary');
 	}	
 }

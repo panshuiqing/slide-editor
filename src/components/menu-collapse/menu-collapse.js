@@ -1,7 +1,7 @@
 /**
  * @author boxizen
  * @since  2016/01/27
- * @description 观看菜单组件
+ * @description 折叠菜单组件
  */
 
 module.exports = {
@@ -10,8 +10,7 @@ module.exports = {
 	 * 初始化
 	 */
 	init: function(dom) {
-		require("!style!css!sass!./menu-play.scss");
-		var tpl = require('./menu-play.tpl');
+		var tpl = require('./menu-collapse.tpl');
 		$(dom).append(tpl());
 	}	
 }
