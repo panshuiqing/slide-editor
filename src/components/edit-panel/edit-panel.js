@@ -23,23 +23,21 @@ module.exports = {
             $('.anchor-block.focus').removeClass('focus');
             $('.edit-div').attr('contenteditable', false).attr('contenteditable', false).removeClass('focus').removeClass('cke_editable').removeClass('editing');
             // 销毁编辑器实例和jquery对象
-            for (var editor in CKEDITOR.instances) {                
+            for (var editor in CKEDITOR.instances) {
                 CKEDITOR.remove(CKEDITOR.instances[editor]);
                 $('#cke_' + editor).remove();
             }
         })
 
         // 编辑框单击
-        /*$('.edit-block').click(function(e) {
+        $('.edit-block').dblclick(function(e) {
             var $editDiv = $(this).children('.edit-div');
-            if ($editDiv.hasClass('focus') && !$editDiv.hasClass('editing')) {
-                $editDiv.addClass('editing');
-                CKEDITOR.inline($editDiv.attr('id'));
-            }
             // 高亮，同时设为可编辑状态
             $editDiv.attr('contenteditable', true).addClass('focus').parent().children('.anchor-block').addClass('focus');
-            e.stopPropagation();
-        })*/
+            $editDiv.addClass('editing');
+            CKEDITOR.inline($editDiv.attr('id'));
+            console.log('hehe');
+        })
 
         // 拖动div
         $('.edit-block').mousedown(function(e) {
@@ -47,15 +45,14 @@ module.exports = {
             var firstX = e.pageX;
             var firstY = e.pageY;
             var staticLeft = $(this).css('left');
-            var staticTop = $(this).css('top');            
+            var staticTop = $(this).css('top');
             // 激活高亮
             $(this).children('.anchor-block').addClass('focus');
-            $(this).children('.edit-div').addClass('focus');            
-            var that = this;            
+            $(this).children('.edit-div').addClass('focus');
+            var that = this;
             // 编辑状态
-            var editing = $(this).children('.edit-div').attr('contenteditable');
             $(document).mousemove(function(event) {
-                if (isMove && editing == 'false') {
+                if (isMove) {
                     // 计算最终坐标
                     var curX = event.pageX;
                     var distanceX = curX - firstX;
