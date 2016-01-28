@@ -8,20 +8,27 @@
 </head>
 
 <body>
+    <!--div class="loading">
+        loading
+    </div-->
     <div class="menu-wrapper"></div>
     <div class="tool-wrapper"></div>
     <div class="widget-wrapper"></div>
     <div class="edit-container">
         <div class="edit-panel">
-
-            <div id="editor1" contenteditable="false" class='editDiv'>
-                <h1>Inline Editing in Action!</h1>
-                <p>The "div" element that contains this text is now editable.
+            <div class="edit-block">
+                <div id="editor1" contenteditable="true" class='edit-div'>
+                    <h1>请输入标题</h1>
+                </div>
+                <div class="anchor-position"></div>
+                <div class="anchor-right anchor-block"></div>
+                <div class="anchor-left anchor-block"></div>
             </div>
         </div>
     </div>
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/ckeditor/4.5.4/ckeditor.js"></script>
+    <!--script src="http://cdn.bootcss.com/ckeditor/4.5.4/ckeditor.js"></script-->
+    <script src="https://cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
     <script src="./dist/bundle.js"></script>
 </body>
 

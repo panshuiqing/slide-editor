@@ -28,10 +28,10 @@ function resize() {
     $('.edit-container').css('width', winW - 190 + 'px');
 }
 
-$('.editDiv').dblclick(function() {
+$('.edit-div').dblclick(function() {
 	$(this).attr('contenteditable', true);
 })
 
-$('.editDiv').click(function() {
-	$(this).css('border', '2px solid #20C7EC');
+$('.edit-div').click(function() {
+	$(this).css('border', '1px solid #20C7EC');
 })
