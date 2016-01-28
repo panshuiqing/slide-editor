@@ -17,11 +17,12 @@ module.exports = {
      * @api public
      */
     bind: function() {
+
         // 销毁对象
         $('.edit-container').mousedown(function() {
             // 还原编辑器覆盖的区块                  
             $('.anchor-block.focus').removeClass('focus');
-            $('.edit-div').attr('contenteditable', false).attr('contenteditable', false).removeClass('focus').removeClass('cke_editable').removeClass('editing');
+            $('.edit-div').removeClass('focus').removeClass('cke_editable').attr('contenteditable', false);
             // 销毁编辑器实例和jquery对象
             for (var editor in CKEDITOR.instances) {
                 CKEDITOR.remove(CKEDITOR.instances[editor]);
@@ -32,11 +33,11 @@ module.exports = {
         // 编辑框单击
         $('.edit-block').dblclick(function(e) {
             var $editDiv = $(this).children('.edit-div');
+            var $anchorBlc = $(this).children('.anchor-block');
             // 高亮，同时设为可编辑状态
-            $editDiv.attr('contenteditable', true).addClass('focus').parent().children('.anchor-block').addClass('focus');
-            $editDiv.addClass('editing');
             CKEDITOR.inline($editDiv.attr('id'));
-            console.log('hehe');
+            $editDiv.addClass('focus').attr('contenteditable', true).focus();
+            $anchorBlc.addClass('focus');            
         })
 
         // 拖动div
