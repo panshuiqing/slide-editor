@@ -1,0 +1,15 @@
+.toolbar-text-panel {
+	background: #333;
+	color: #FFF;
+	position: absolute;
+	width: 130px;
+	top: 0;
+	bottom: 0;
+	text-align: center;
+	z-index: -1;
+	transition: all 0.2s;
+	opacity: 0.8;
+	line-height: 100px;
+	left: 120px;
+	padding: 15px;
+}

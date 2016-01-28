@@ -20,7 +20,7 @@ module.exports = {
         // 销毁对象
         $('.edit-container').click(function() {
             // 还原编辑器覆盖的区块                  
-            $('.anchor-block').removeClass('focus');
+            $('.anchor-block.focus').removeClass('focus');
             $('.edit-div').attr('contenteditable', false).attr('contenteditable', false).removeClass('focus').removeClass('cke_editable').removeClass('editing');
             for (var editor in CKEDITOR.instances) {
                 // 销毁编辑器实例  
@@ -30,7 +30,7 @@ module.exports = {
             }
         })
 
-        // 单击事件
+        // 编辑框单击
         $('.edit-div').click(function(e) {
             if ($(this).hasClass('focus') && !$(this).hasClass('editing')) {
                 $(this).addClass('editing');
@@ -44,30 +44,59 @@ module.exports = {
         $('.edit-block').mousedown(function(e) {
             var isMove = true;
             var firstX = e.pageX;
-            var firstY = e.pageY;    
+            var firstY = e.pageY;
             var staticLeft = $(this).css('left');
             var staticTop = $(this).css('top');
-            $(this).addClass('focus').parent().children('.anchor-block').addClass('focus');            
+            $(this).addClass('focus').parent().children('.anchor-block').addClass('focus');
             var that = this;
+            // 编辑状态
+            var editing = $(this).children('.edit-div').attr('contenteditable');
             $(document).mousemove(function(event) {
-                if(isMove) {
-                    // 计算最终x坐标
+                if (isMove && editing == 'false') {
+                    // 计算最终坐标
                     var curX = event.pageX;
                     var distanceX = curX - firstX;
                     var finalX = parseInt(staticLeft) + distanceX;
-                    $(that).css('left', finalX + 'px');
-                    //计算最终y坐标
                     var curY = event.pageY;
                     var distanceY = curY - firstY;
-                    var finalY = parseInt(staticTop) + distanceY;                    
-                    $(that).css('top', finalY + 'px');                    
+                    var finalY = parseInt(staticTop) + distanceY;
+                    $(that).css('left', finalX + 'px').css('top', finalY + 'px');
                 }
-            }).mouseup(function(e){
+            }).mouseup(function(e) {
                 isMove = false;
                 $(document).unbind('mousemove');
             });
-
-            e.stopPropagation();
         })
+
+        // 拉长编辑框 
+        $('.anchor-block').mousedown(function(e) {
+            var isMove = true;
+            var firstX = e.pageX;
+            var width = $(this).parent('.edit-block').width();
+            var left = parseInt($(this).parent('.edit-block').css('left'));
+            var that = this;
+            $(document).mousemove(function(event) {
+                if (isMove) {
+                    var curX = event.pageX;
+
+                    if ($(that).hasClass('anchor-right')) {
+                        var dist = curX - firstX;
+                        var $editBlock = $(that).parent('.edit-block');
+                        if (width + dist > 20) {
+                            $editBlock.css('width', (width + dist) + 'px');
+                        }
+                    } else {
+                        var dist = firstX - curX;
+                        var $editBlock = $(that).parent('.edit-block');
+                        if (width + dist > 20) {
+                            $editBlock.css('width', (width + dist) + 'px').css('left', (left - dist));
+                        }
+                    }
+                }
+            }).mouseup(function(e) {
+                isMove = false;
+                $(document).unbind('mousemove');
+            })
+        });
     }
 }

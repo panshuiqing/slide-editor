@@ -5,3 +5,4 @@
 		</span>
 	<span class='toolbar-text-block'>文本</span></a>
 </div>
+<div class="toolbar-text-panel toolbar-block-panel">面板</div>

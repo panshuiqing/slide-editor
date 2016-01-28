@@ -41,6 +41,7 @@
         .edit-div {
             padding: 10px;
             border: 1px solid transparent;
+            word-break: break-all;
             &.focus {
                 border: 1px solid #20C7EC;
             }
