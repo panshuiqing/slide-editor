@@ -17,12 +17,12 @@ module.exports = {
      * @api public
      */
     bind: function() {
-        $('.edit-div').dblclick(function() {
-            $(this).attr('contenteditable', true);
-        })
+        $('.edit-div').dblclick(function() {})
 
         $('.edit-div').click(function() {
+            $(this).attr('contenteditable', true);
             $(this).css('border', '1px solid #20C7EC');
+            CKEDITOR.inline($(this).attr('id'));
         })
     }
 }
