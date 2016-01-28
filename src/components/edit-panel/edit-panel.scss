@@ -3,12 +3,12 @@
     width: 960px;
     height: 720px;
     background: #FFF;
+    border: 1px dashed #C7C7C7;
     left: 50%;
     top: 50%;
     margin-left: -480px;
     margin-top: -360px;
     z-index: -1;
-    overflow: hidden;
     .edit-block {
         position: absolute;
         left: 0;

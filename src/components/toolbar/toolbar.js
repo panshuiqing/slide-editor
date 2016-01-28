@@ -34,5 +34,9 @@ module.exports = {
 		// 初始化code组件
 		var textCmp = require('../tool-code/tool-code.js');
 		textCmp.init('.toolbar-list');
+
+		// 初始化表情组件
+		var textCmp = require('../tool-face/tool-face.js');
+		textCmp.init('.toolbar-list');
 	}	
 }
