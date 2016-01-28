@@ -52,8 +52,10 @@ module.exports = {
             $(this).children('.edit-div').addClass('focus');
             var that = this;
             // 编辑状态
+            var editing = $(this).children('.edit-div').attr('contenteditable');
             $(document).mousemove(function(event) {
-                if (isMove) {
+                // 编辑状态不允许移动
+                if (isMove && editing == 'false') {
                     // 计算最终坐标
                     var curX = event.pageX;
                     var distanceX = curX - firstX;
