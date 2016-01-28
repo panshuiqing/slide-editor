@@ -17,7 +17,6 @@ module.exports = {
      * @api public
      */
     bind: function() {
-
         // 销毁对象
         $('.edit-container').click(function() {
             for (var editor in CKEDITOR.instances) {
@@ -31,14 +30,15 @@ module.exports = {
             }
         })
 
-        $('.edit-div').dblclick(function() {})
-
+        // 单击事件
         $('.edit-div').click(function(e) {
-            // 移除CKEDITOR对象
+            if ($(this).hasClass('focus')) {
+                console.log('has focus');
+                CKEDITOR.inline($(this).attr('id'));
+            }
             $(this).attr('contenteditable', true).addClass('focus');
             $(this).parent().children('.anchor-block').addClass('focus');
-            CKEDITOR.inline($(this).attr('id'));
-            e.stopPropagation();
+            e.stopPropagation();            
         })
     }
 }
