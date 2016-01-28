@@ -8,10 +8,11 @@
     margin-left: -480px;
     margin-top: -360px;
     z-index: -1;
+    overflow: hidden;
     .edit-block {
         position: absolute;
-        cursor: hand;
-        margin: 60px;
+        left: 0;
+        top: 0;
         cursor: pointer;
         .anchor-block {
             position: absolute;
