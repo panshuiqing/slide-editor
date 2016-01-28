@@ -36,3 +36,10 @@ function resize() {
     $('.edit-container').css('width', winW - 190 + 'px');
 }
 
+/**
+ * 销毁对象
+ * @api private
+ */
+function destroy() {
+	
+}

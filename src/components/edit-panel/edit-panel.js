@@ -17,12 +17,28 @@ module.exports = {
      * @api public
      */
     bind: function() {
+
+        // 销毁对象
+        $('.edit-container').click(function() {
+            for (var editor in CKEDITOR.instances) {
+                // 还原编辑器覆盖的区块                  
+                $('#' + editor).parent().children('.anchor-block').removeClass('focus');
+                $('#' + editor).attr('contenteditable', false).removeClass('focus').removeClass('cke_editable');
+                // 销毁编辑器实例  
+                CKEDITOR.remove(CKEDITOR.instances[editor]);
+                // 移除编辑器Jquery对象  
+                $('#cke_' + editor).remove();
+            }
+        })
+
         $('.edit-div').dblclick(function() {})
 
-        $('.edit-div').click(function() {
-            $(this).attr('contenteditable', true);
-            $(this).css('border', '1px solid #20C7EC');
+        $('.edit-div').click(function(e) {
+            // 移除CKEDITOR对象
+            $(this).attr('contenteditable', true).addClass('focus');
+            $(this).parent().children('.anchor-block').addClass('focus');
             CKEDITOR.inline($(this).attr('id'));
+            e.stopPropagation();
         })
     }
 }
