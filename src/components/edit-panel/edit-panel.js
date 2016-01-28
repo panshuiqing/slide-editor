@@ -18,28 +18,28 @@ module.exports = {
      */
     bind: function() {
         // 销毁对象
-        $('.edit-container').click(function() {
+        $('.edit-container').mousedown(function() {
             // 还原编辑器覆盖的区块                  
             $('.anchor-block.focus').removeClass('focus');
             $('.edit-div').attr('contenteditable', false).attr('contenteditable', false).removeClass('focus').removeClass('cke_editable').removeClass('editing');
-            for (var editor in CKEDITOR.instances) {
-                // 销毁编辑器实例  
+            // 销毁编辑器实例和jquery对象
+            for (var editor in CKEDITOR.instances) {                
                 CKEDITOR.remove(CKEDITOR.instances[editor]);
-                // 移除编辑器Jquery对象  
                 $('#cke_' + editor).remove();
             }
         })
 
         // 编辑框单击
-        $('.edit-block').click(function(e) {
+        /*$('.edit-block').click(function(e) {
             var $editDiv = $(this).children('.edit-div');
             if ($editDiv.hasClass('focus') && !$editDiv.hasClass('editing')) {
                 $editDiv.addClass('editing');
                 CKEDITOR.inline($editDiv.attr('id'));
             }
+            // 高亮，同时设为可编辑状态
             $editDiv.attr('contenteditable', true).addClass('focus').parent().children('.anchor-block').addClass('focus');
             e.stopPropagation();
-        })
+        })*/
 
         // 拖动div
         $('.edit-block').mousedown(function(e) {
@@ -47,10 +47,11 @@ module.exports = {
             var firstX = e.pageX;
             var firstY = e.pageY;
             var staticLeft = $(this).css('left');
-            var staticTop = $(this).css('top');
+            var staticTop = $(this).css('top');            
+            // 激活高亮
             $(this).children('.anchor-block').addClass('focus');
-            $(this).children('.edit-div').addClass('focus');
-            var that = this;
+            $(this).children('.edit-div').addClass('focus');            
+            var that = this;            
             // 编辑状态
             var editing = $(this).children('.edit-div').attr('contenteditable');
             $(document).mousemove(function(event) {
@@ -68,6 +69,7 @@ module.exports = {
                 isMove = false;
                 $(document).unbind('mousemove');
             });
+            e.stopPropagation();
         })
 
         // 拉长编辑框 
@@ -99,6 +101,7 @@ module.exports = {
                 isMove = false;
                 $(document).unbind('mousemove');
             })
+            e.stopPropagation();
         });
     }
 }
