@@ -31,12 +31,13 @@ module.exports = {
         })
 
         // 编辑框单击
-        $('.edit-div').click(function(e) {
-            if ($(this).hasClass('focus') && !$(this).hasClass('editing')) {
-                $(this).addClass('editing');
-                CKEDITOR.inline($(this).attr('id'));
+        $('.edit-block').click(function(e) {
+            var $editDiv = $(this).children('.edit-div');
+            if ($editDiv.hasClass('focus') && !$editDiv.hasClass('editing')) {
+                $editDiv.addClass('editing');
+                CKEDITOR.inline($editDiv.attr('id'));
             }
-            $(this).attr('contenteditable', true).addClass('focus').parent().children('.anchor-block').addClass('focus');
+            $editDiv.attr('contenteditable', true).addClass('focus').parent().children('.anchor-block').addClass('focus');
             e.stopPropagation();
         })
 
@@ -47,7 +48,8 @@ module.exports = {
             var firstY = e.pageY;
             var staticLeft = $(this).css('left');
             var staticTop = $(this).css('top');
-            $(this).addClass('focus').parent().children('.anchor-block').addClass('focus');
+            $(this).children('.anchor-block').addClass('focus');
+            $(this).children('.edit-div').addClass('focus');
             var that = this;
             // 编辑状态
             var editing = $(this).children('.edit-div').attr('contenteditable');
