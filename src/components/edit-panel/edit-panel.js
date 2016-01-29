@@ -20,9 +20,9 @@ module.exports = {
 
         // 销毁对象
         $('.edit-container').mousedown(function() {
-            // 还原编辑器覆盖的区块                  
+            // 还原所有编辑区                  
             $('.anchor-block.focus').removeClass('focus');
-            $('.edit-div').removeClass('focus').removeClass('cke_editable').attr('contenteditable', false);
+            $('.edit-div.focus').removeClass('focus').removeClass('cke_editable').attr('contenteditable', false);
             // 销毁编辑器实例和jquery对象
             for (var editor in CKEDITOR.instances) {
                 CKEDITOR.remove(CKEDITOR.instances[editor]);
@@ -42,6 +42,10 @@ module.exports = {
 
         // 拖动div
         $('.edit-block').mousedown(function(e) {
+            // 还原其他编辑区
+            $('.anchor-block.focus').removeClass('focus');
+            $('.edit-div.focus').removeClass('focus').removeClass('cke_editable').attr('contenteditable', false);
+
             var isMove = true;
             var firstX = e.pageX;
             var firstY = e.pageY;

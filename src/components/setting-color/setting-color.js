@@ -14,5 +14,20 @@ module.exports = {
 		require("!style!css!sass!./setting-color.scss");
 		var tpl = require('./setting-color.tpl');
 		$(dom).append(tpl());		
+		// 颜色画板
+		$('#colorpick').click(function() {
+			var $colorpicker = $('.colorpicker');
+			if($colorpicker.hasClass('hidden')) {
+				$colorpicker.removeClass('hidden');
+			} else {
+				$colorpicker.addClass('hidden');
+			}			
+			return false;
+		})
+		// 颜色选择器
+		$('.colorpicker .coloritem').click(function() {
+			var color = $(this).css('background');
+			$('.edit-panel').css('background', color);
+		})
 	}	
 }

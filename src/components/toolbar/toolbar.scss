@@ -16,6 +16,7 @@
         bottom: 0;
         padding: 25px;
         background: #333333;
+        /* 菜单选项 */
         .toolbar-block-option {
             border: 2px solid transparent;
             padding-top: 5px;
@@ -40,6 +41,58 @@
                 font-size: 12px;
                 height: 34px;
                 line-height: 34px;
+            }
+        }
+        /* 菜单详情面板 */
+        .toolbar-block-panel {
+            background: #333;
+            color: #FFF;
+            position: absolute;
+            width: 130px;
+            top: 0;
+            bottom: 0;
+            text-align: center;
+            z-index: -1;
+            transition: all 0.2s;
+            opacity: 0.8;
+            left: 120px;
+            padding: 35px 15px 15px 15px;
+            /* 面板中每一部分 */
+            .toolbar-panel-block {
+                padding-bottom: 20px;
+                .toolbar-panel-title {
+                    font-size: 12px;
+                    font-weight: normal;
+                    text-align: left;
+                    margin: 0;
+                    padding-bottom: 10px;
+                }
+                .toolbar-panel-input {
+                    border: none;
+                    padding: 5px;
+                    width: 118px;
+                    background: #4e4e4e;
+                    color: #fff;
+                    cursor: pointer;
+                    border: 1px solid #4e4e4e;         
+                    &.focus {
+                        border: 1px solid #4FBAEF;         
+                    }           
+                }
+                .toolbar-panel-btn {
+                    width: 48%;
+                    background: #4e4e4e;
+                    font-weight: bold;
+                    padding: 5px 0;
+                    cursor: pointer;
+                    display: inline-block;                    
+                }
+                .toolbar-panel-coml {
+                    float: left;
+                }
+                .toolbar-panel-comr {
+                    float: right;
+                }
             }
         }
     }
