@@ -18,10 +18,16 @@ var init = function(dom) {
 exports.init = init;
 
 /**
- * 展开编辑面板
+ * 绑定相关事件
  * @api public
  */
-var showPanel = function() {
-
+var bind = function() {
+	$('.text-edit-block').click(function(e) {
+		$('.toolbar-text-panel').css('left', '120px');
+		e.stopPropagation();
+	});
+	$(document).click(function() {
+		$('.toolbar-text-panel').css('left', '-160px');
+	});
 }
-exports.showPanel = showPanel;
+exports.bind = bind;

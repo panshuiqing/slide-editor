@@ -17,11 +17,12 @@ module.exports = {
 
 		// 初始化设置组件
 		var textCmp = require('../tool-setting/tool-setting.js');
-		textCmp.init('.toolbar-list');
+		textCmp.init('.toolbar-list');		
 
 		// 初始化文本组件
 		var textCmp = require('../tool-text/tool-text.js');
 		textCmp.init('.toolbar-list');		
+		textCmp.bind();
 
 		// 初始化图片组件
 		var textCmp = require('../tool-image/tool-image.js');

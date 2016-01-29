@@ -5,6 +5,7 @@
 		</span>
 	<span class='toolbar-text-block'>文本</span></a>
 </div>
+<!-- 工具详情 -->
 <div class="toolbar-text-panel toolbar-block-panel">
 	<div class="toolbar-panel-block">
 		<h4 class="toolbar-panel-title">颜色</h4>
