@@ -20,7 +20,9 @@ module.exports = {
 
         // 销毁对象
         $('.edit-container').mousedown(function() {
-            // 还原所有编辑区                  
+            console.log('全局事件');
+            // 还原所有编辑区                 
+            $('.edit-block').removeClass('initialize');
             $('.anchor-block.focus').removeClass('focus');
             $('.edit-div.focus').removeClass('focus').removeClass('cke_editable').attr('contenteditable', false);
             // 销毁编辑器实例和jquery对象
@@ -32,31 +34,36 @@ module.exports = {
 
         // 编辑框单击
         $('.edit-block').dblclick(function(e) {
-            var $editDiv = $(this).children('.edit-div');
-            var $anchorBlc = $(this).children('.anchor-block');
-            // 高亮，同时设为可编辑状态
-            CKEDITOR.inline($editDiv.attr('id'));
-            $editDiv.addClass('focus').attr('contenteditable', true).focus();
-            $anchorBlc.addClass('focus');            
+            var $editBlock = $(this);
+            var $editDiv = $editBlock.children('.edit-div');
+            var $anchorBlc = $editBlock.children('.anchor-block');
+            // 已经初始化过的不需要再实例化
+            if (!$editBlock.hasClass('initialize')) {
+                $editBlock.addClass('initialize');
+                CKEDITOR.inline($editDiv.attr('id'));
+                $editDiv.addClass('focus').attr('contenteditable', true).focus();
+                $anchorBlc.addClass('focus');
+            }
         })
 
         // 拖动div
         $('.edit-block').mousedown(function(e) {
             // 还原其他编辑区
-            $('.anchor-block.focus').removeClass('focus');
-            $('.edit-div.focus').removeClass('focus').removeClass('cke_editable').attr('contenteditable', false);
+            //$('.anchor-block.focus').removeClass('focus');
+            // $('.edit-div.focus').removeClass('focus').removeClass('cke_editable').attr('contenteditable', false);
 
+            var $editBlock = $(this);
             var isMove = true;
             var firstX = e.pageX;
             var firstY = e.pageY;
-            var staticLeft = $(this).css('left');
-            var staticTop = $(this).css('top');
+            var staticLeft = $editBlock.css('left');
+            var staticTop = $editBlock.css('top');
             // 激活高亮
-            $(this).children('.anchor-block').addClass('focus');
-            $(this).children('.edit-div').addClass('focus');
+            $editBlock.children('.anchor-block').addClass('focus');
+            $editBlock.children('.edit-div').addClass('focus');
             var that = this;
             // 编辑状态
-            var editing = $(this).children('.edit-div').attr('contenteditable');
+            var editing = $editBlock.children('.edit-div').attr('contenteditable');
             $(document).mousemove(function(event) {
                 // 编辑状态不允许移动
                 if (isMove && editing == 'false') {
@@ -78,10 +85,11 @@ module.exports = {
 
         // 拉长编辑框 
         $('.anchor-block').mousedown(function(e) {
+            var $anchor = $(this);
             var isMove = true;
             var firstX = e.pageX;
-            var width = $(this).parent('.edit-block').width();
-            var left = parseInt($(this).parent('.edit-block').css('left'));
+            var width = $anchor.parent('.edit-block').width();
+            var left = parseInt($anchor.parent('.edit-block').css('left'));
             var that = this;
             $(document).mousemove(function(event) {
                 if (isMove) {
