@@ -5,6 +5,7 @@
  */
 
 module.exports = {
+
     /**
      * 初始化编辑面板样式
      * @api public
@@ -15,6 +16,7 @@ module.exports = {
          */
         require('!style!css!sass!./edit-panel.scss');
     },
+
     /**
      * 绑定编辑面板相应事件
      * @api public
@@ -22,19 +24,21 @@ module.exports = {
     bind: function() {
 
         /**
+         * 绑定文本框事件
+         */
+        var textCmp = require('../tool-text/tool-text.js');
+        textCmp.bind('.edit-page.active');
+
+        /**
          * 销毁对象
          */
         $('.edit-container').mousedown(function() {
-            console.log('mouse down');
-
             // 还原所有文本编辑区                 
             $('.text-edit-block').removeClass('initialize');
             $('.text-edit-block').removeClass('focus');
             $('.edit-div').removeClass('focus').removeClass('cke_editable').attr('contenteditable', false);
-
             // 取消编辑区聚焦
             $('.anchor-block.focus').removeClass('focus');
-
             // 销毁编辑器实例和jquery对象
             for (var editor in CKEDITOR.instances) {
                 CKEDITOR.remove(CKEDITOR.instances[editor]);
@@ -63,7 +67,7 @@ module.exports = {
         $('.edit-block').mousedown(function(e) {
             var $editBlock = $(this);
             var $editDiv = $editBlock.children('.edit-div');
-            
+
             // 取消其他编辑区域高亮
             var $activeBlock = $('.edit-block.focus');
             for (var i = 0; i < $activeBlock.length; i++) {
@@ -118,7 +122,7 @@ module.exports = {
             var width = $anchor.parent('.edit-block').width();
             var height = $anchor.parent('.edit-block').height();
             var top = parseInt($anchor.parent('.edit-block').css('top'));
-            var left = parseInt($anchor.parent('.edit-block').css('left'));            
+            var left = parseInt($anchor.parent('.edit-block').css('left'));
             var that = this;
             $(document).mousemove(function(event) {
                 if (isMove) {

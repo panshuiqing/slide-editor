@@ -1,5 +1,5 @@
 <div class="toolbar-block-option toolbar-text">
-	<a href="#">
+	<a href="#" id='toolbar-text-btn'>
 		<span class='toolbar-icon-block'>
 			<i class="iconfont">&#xe604;</i>
 		</span>
