@@ -22,20 +22,19 @@ module.exports = {
     bind: function() {
 
         /**
-         * 监听键盘事件
-         */
-        var keyboard = require('../../libs/keyboard.js');
-        keyboard.bind('.edit-block.focus');
-
-        /**
          * 销毁对象
          */
         $('.edit-container').mousedown(function() {
-            // 还原所有编辑区                 
-            $('.edit-block').removeClass('initialize');
-            $('.edit-block').removeClass('focus');
+            console.log('mouse down');
+
+            // 还原所有文本编辑区                 
+            $('.text-edit-block').removeClass('initialize');
+            $('.text-edit-block').removeClass('focus');
             $('.edit-div').removeClass('focus').removeClass('cke_editable').attr('contenteditable', false);
+
+            // 取消编辑区聚焦
             $('.anchor-block.focus').removeClass('focus');
+
             // 销毁编辑器实例和jquery对象
             for (var editor in CKEDITOR.instances) {
                 CKEDITOR.remove(CKEDITOR.instances[editor]);
@@ -46,7 +45,7 @@ module.exports = {
         /**
          * 单击编辑框
          */
-        $('.edit-block').dblclick(function(e) {
+        $('.text-edit-block').dblclick(function(e) {
             var $editBlock = $(this);
             var $editDiv = $editBlock.children('.edit-div');
             var $anchorBlc = $editBlock.children('.anchor-block');
@@ -60,7 +59,7 @@ module.exports = {
 
         /**
          * 拖动div
-         */        
+         */
         $('.edit-block').mousedown(function(e) {
             var $editBlock = $(this);
             var $editDiv = $editBlock.children('.edit-div');
@@ -75,7 +74,6 @@ module.exports = {
                     $activeBlock.children('.anchor-block.focus').removeClass('focus');
                 }
             }
-
             var isMove = true;
             var firstX = e.pageX;
             var firstY = e.pageY;
@@ -87,6 +85,7 @@ module.exports = {
             $editDiv.addClass('focus');
             $editBlock.children('.anchor-block').addClass('focus');
             var that = this;
+
             // 编辑状态
             var editing = $editBlock.children('.edit-div').attr('contenteditable');
             $(document).mousemove(function(event) {
@@ -142,5 +141,19 @@ module.exports = {
             })
             e.stopPropagation();
         });
+
+        /**
+         * 键盘删除按键
+         */
+        document.onkeydown = function(e) {
+            var code = e.keyCode;
+            if (code == 8) {
+                var editing = $('.edit-block.focus').children('.edit-div').attr('contenteditable');
+                if (editing == 'false') {
+                    $('.edit-block.focus').remove();
+                    return false;
+                }                
+            }
+        }
     }
 }
