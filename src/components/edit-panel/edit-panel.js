@@ -35,6 +35,12 @@ module.exports = {
         imgCmp.bind('.edit-page.active');
 
         /**
+         * 绑定iframe框事件
+         */
+        var iframeCmp = require('../tool-iframe/tool-iframe.js');
+        iframeCmp.bind('.edit-page.active');
+
+        /**
          * 销毁对象
          */
         $(document).on('mousedown', '.edit-container', function() {

@@ -1,5 +1,5 @@
 <div class="toolbar-block-option toolbar-iframe">
-	<a href="#">
+	<a href="#" id='toolbar-iframe-btn'>
 		<span class='toolbar-icon-block'>
 			<i class="iconfont">&#xe601;</i>
 		</span>
