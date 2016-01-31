@@ -7,7 +7,12 @@
 module.exports = {
     bind: function() {
         document.onkeydown = function(e) {
-        	console.log(e.keyCode);
+            var code = e.keyCode;
+            switch (code) {
+                case 8:
+                	return false;
+                    break;
+            }
         }
     }
 }
