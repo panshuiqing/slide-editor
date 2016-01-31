@@ -114,12 +114,15 @@ module.exports = {
             var $anchor = $(this);
             var isMove = true;
             var firstX = e.pageX;
+            var firstY = e.pageY;
             var width = $anchor.parent('.edit-block').width();
+            var height = $anchor.parent('.edit-block').height();
             var left = parseInt($anchor.parent('.edit-block').css('left'));
             var that = this;
             $(document).mousemove(function(event) {
                 if (isMove) {
                     var curX = event.pageX;
+                    var curY = event.pageY;
 
                     if ($(that).hasClass('anchor-right')) {
                         var dist = curX - firstX;
@@ -127,11 +130,17 @@ module.exports = {
                         if (width + dist > 20) {
                             $editBlock.css('width', (width + dist) + 'px');
                         }
-                    } else {
+                    } else if ($(that).hasClass('anchor-left')) {
                         var dist = firstX - curX;
                         var $editBlock = $(that).parent('.edit-block');
                         if (width + dist > 20) {
                             $editBlock.css('width', (width + dist) + 'px').css('left', (left - dist));
+                        }
+                    } else if ($(that).hasClass('anchor-bottom')) {
+                        var dist = curY - firstY;
+                        var $editBlock = $(that).parent('.edit-block');
+                        if (height + dist > 20) {
+                            $editBlock.css('height', (height + dist) + 'px');
                         }
                     }
                 }
@@ -152,7 +161,7 @@ module.exports = {
                 if (editing == 'false') {
                     $('.edit-block.focus').remove();
                     return false;
-                }                
+                }
             }
         }
     }
