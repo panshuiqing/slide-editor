@@ -22,32 +22,27 @@ exports.init = init;
  * @api public
  */
 var bind = function(dom) {
-	
-	/**
-	 * 点击文本框弹出详情面板
-	 */
-	$('.text-edit-block').click(function(e) {
-		$('.toolbar-text-panel').css('left', '120px');
-		e.stopPropagation();
-	});
 
-	/**
-	 * 点击文本菜单创建文本框
-	 */
-	$('#toolbar-text-btn').click(function() {
-		var tpl = require('./text.tpl');
-    	$(dom).append(tpl());	
-    	var index = $(dom).attr('edit-index');    	
-    	var target = parseInt(index) + 1;
-    	$(dom).attr('edit-index', target);
-    	return false;
-	});
+    /**
+     * 点击文本菜单创建文本框
+     */
+    $('#toolbar-text-btn').click(function() {
+        var tpl = require('./text.tpl');
+        $(dom).append(tpl());
+        var index = $(dom).attr('edit-index');
+        var target = parseInt(index) + 1;
+        $(dom).attr('edit-index', target);
+        return false;
+    });
 
-	/**
-	 * 点击空白处隐藏详情面板
-	 */
-	$(document).click(function() {
-		$('.toolbar-text-panel').css('left', '-160px');
-	});
+    /**
+     * 点击文本框弹出详情面板
+     */
+    $(document).on('click', '.text-edit-block', function(e) {
+        $('.toolbar-text-panel').css('left', '120px');
+        e.stopPropagation();
+    });
+
 }
+
 exports.bind = bind;

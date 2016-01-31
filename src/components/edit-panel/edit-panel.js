@@ -22,7 +22,6 @@ module.exports = {
      * @api public
      */
     bind: function() {
-
         /**
          * 绑定文本框事件
          */
@@ -30,9 +29,15 @@ module.exports = {
         textCmp.bind('.edit-page.active');
 
         /**
+         * 绑定图形框事件
+         */
+        var imgCmp = require('../tool-image/tool-image.js');
+        imgCmp.bind('.edit-page.active');
+
+        /**
          * 销毁对象
          */
-        $('.edit-container').mousedown(function() {
+        $(document).on('mousedown', '.edit-container', function() {
             // 还原所有文本编辑区                 
             $('.text-edit-block').removeClass('initialize');
             $('.text-edit-block').removeClass('focus');
@@ -44,12 +49,14 @@ module.exports = {
                 CKEDITOR.remove(CKEDITOR.instances[editor]);
                 $('#cke_' + editor).remove();
             }
-        })
+            // 隐藏工具条详情面板
+            $('.toolbar-text-panel').css('left', '-160px');
+        });
 
         /**
          * 单击编辑框
          */
-        $('.text-edit-block').dblclick(function(e) {
+        $(document).on('dblclick', '.text-edit-block', function(e) {
             var $editBlock = $(this);
             var $editDiv = $editBlock.children('.edit-div');
             var $anchorBlc = $editBlock.children('.anchor-block');
@@ -59,12 +66,12 @@ module.exports = {
                 $editBlock.addClass('initialize');
                 $editDiv.attr('contenteditable', true).focus();
             }
-        })
+        });
 
         /**
          * 拖动div
          */
-        $('.edit-block').mousedown(function(e) {
+        $(document).on('mousedown', '.edit-block', function(e) {
             var $editBlock = $(this);
             var $editDiv = $editBlock.children('.edit-div');
 
@@ -114,7 +121,7 @@ module.exports = {
         /**
          * 拉伸编辑框 
          */
-        $('.anchor-block').mousedown(function(e) {
+        $(document).on('mousedown', '.anchor-block', function(e) {
             var $anchor = $(this);
             var isMove = true;
             var firstX = e.pageX;
