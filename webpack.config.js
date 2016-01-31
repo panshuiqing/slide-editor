@@ -25,9 +25,9 @@ module.exports = {
         }, {
             test: /\.(css|scss)$/,
             loader: 'style!css!sass-loader'
-        }, {
+        }/*, {
             test: /\.(png|jpg)$/,
-            loader: 'url?limit=8192' // 图片低于 8MB 时转换成 inline base64
-        }]
+            loader: 'url?limit=8192'
+        }*/]
     }
 }

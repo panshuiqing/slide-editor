@@ -63,7 +63,7 @@ module.exports = {
         $('.edit-block').mousedown(function(e) {
             var $editBlock = $(this);
             var $editDiv = $editBlock.children('.edit-div');
-
+            
             // 取消其他编辑区域高亮
             var $activeBlock = $('.edit-block.focus');
             for (var i = 0; i < $activeBlock.length; i++) {
@@ -117,7 +117,8 @@ module.exports = {
             var firstY = e.pageY;
             var width = $anchor.parent('.edit-block').width();
             var height = $anchor.parent('.edit-block').height();
-            var left = parseInt($anchor.parent('.edit-block').css('left'));
+            var top = parseInt($anchor.parent('.edit-block').css('top'));
+            var left = parseInt($anchor.parent('.edit-block').css('left'));            
             var that = this;
             $(document).mousemove(function(event) {
                 if (isMove) {
@@ -141,6 +142,12 @@ module.exports = {
                         var $editBlock = $(that).parent('.edit-block');
                         if (height + dist > 20) {
                             $editBlock.css('height', (height + dist) + 'px');
+                        }
+                    } else {
+                        var dist = firstY - curY;
+                        var $editBlock = $(that).parent('.edit-block');
+                        if (height + dist > 20) {
+                            $editBlock.css('height', (height + dist) + 'px').css('top', (top - dist) + 'px');
                         }
                     }
                 }
