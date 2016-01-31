@@ -5,11 +5,12 @@
  */
 
 module.exports = {
-    bind: function() {
+    bind: function(selector) {
         document.onkeydown = function(e) {
             var code = e.keyCode;
             switch (code) {
                 case 8:
+                	$(selector).remove();
                 	return false;
                     break;
             }

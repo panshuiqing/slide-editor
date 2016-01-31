@@ -10,6 +10,9 @@ module.exports = {
      * @api public
      */
     init: function() {
+        /**
+         * 引入样式
+         */
         require('!style!css!sass!./edit-panel.scss');
     },
     /**
@@ -18,7 +21,15 @@ module.exports = {
      */
     bind: function() {
 
-        // 销毁对象
+        /**
+         * 监听键盘事件
+         */
+        var keyboard = require('../../libs/keyboard.js');
+        keyboard.bind('.edit-block.focus');
+
+        /**
+         * 销毁对象
+         */
         $('.edit-container').mousedown(function() {
             // 还原所有编辑区                 
             $('.edit-block').removeClass('initialize');
@@ -32,7 +43,9 @@ module.exports = {
             }
         })
 
-        // 编辑框单击
+        /**
+         * 单击编辑框
+         */
         $('.edit-block').dblclick(function(e) {
             var $editBlock = $(this);
             var $editDiv = $editBlock.children('.edit-div');
@@ -45,7 +58,9 @@ module.exports = {
             }
         })
 
-        // 拖动div
+        /**
+         * 拖动div
+         */        
         $('.edit-block').mousedown(function(e) {
             var $editBlock = $(this);
             var $editDiv = $editBlock.children('.edit-div');
@@ -55,7 +70,7 @@ module.exports = {
             for (var i = 0; i < $activeBlock.length; i++) {
                 var $activeBlock = $activeBlock.eq(i);
                 if ($activeBlock != $editBlock) {
-                    $activeBlock.removeClass('focus');                    
+                    $activeBlock.removeClass('focus');
                     $activeBlock.children('.edit-div.focus').removeClass('focus');
                     $activeBlock.children('.anchor-block.focus').removeClass('focus');
                 }
@@ -93,7 +108,9 @@ module.exports = {
             e.stopPropagation();
         })
 
-        // 拉长编辑框 
+        /**
+         * 拉伸编辑框 
+         */
         $('.anchor-block').mousedown(function(e) {
             var $anchor = $(this);
             var isMove = true;

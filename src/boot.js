@@ -59,13 +59,7 @@ function init() {
      * 调整编辑区大小
      */
     resize();
-    $(window).bind('resize', resize);
-
-    /**
-     * 监听键盘事件
-     */
-    var keyboard = require('./libs/keyboard.js');
-    keyboard.bind();
+    $(window).bind('resize', resize);    
 }
 
 init();
