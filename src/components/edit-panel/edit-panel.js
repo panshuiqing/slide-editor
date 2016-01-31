@@ -41,6 +41,12 @@ module.exports = {
         iframeCmp.bind('.edit-page.active');
 
         /**
+         * 绑定iframe框事件
+         */
+        var codeCmp = require('../tool-code/tool-code.js');
+        codeCmp.bind('.edit-page.active');
+
+        /**
          * 销毁对象
          */
         $(document).on('mousedown', '.edit-container', function() {
