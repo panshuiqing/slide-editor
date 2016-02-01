@@ -39,10 +39,82 @@ var bind = function(dom) {
      * 点击文本框弹出详情面板
      */
     $(document).on('click', '.text-edit-block', function(e) {
-        $('.toolbar-text-panel').css('left', '120px');
+        $('#toolbar-text-panel').css('left', '120px');
         e.stopPropagation();
     });
 
+    /**
+     * 内边距设置
+     */
+    $('#tool-text-padding').bind('keypress', function(e) {
+        if (e.keyCode == "13") {
+            var input = $(this).val();
+            if (input.match(/^\d+$/ig) || input.match(/^\d+px$/ig)) {
+                var padding = input.match(/\d+/g)[0];
+                $('.text-edit-div.focus').css('padding', padding);
+            }
+        }
+    });
+
+    /**
+     * 透明度设置
+     */
+    $('#tool-text-opacity').bind('keypress', function(e) {
+        if (e.keyCode == "13") {
+            var input = $(this).val();
+            if (input.match(/^\d+%$/ig)) {
+                var opacity = input.match(/\d+/g)[0] + '%';
+                $('.text-edit-block.focus').css('opacity', opacity);
+            } else if (input.match(/\.\d+$/ig)) {
+                console.log(input);
+                $('.text-edit-block.focus').css('opacity', input);
+            }
+        }
+    });
+
+    /**
+     * 文本间距设置
+     */
+    $('#tool-text-lineheight').bind('keypress', function(e) {
+        if (e.keyCode == "13") {
+            var input = $(this).val();
+            if (input.match(/^\d+%$/ig)) {
+                var lineHeight = input.match(/\d+/g)[0] + '%';
+                $('.text-edit-div.focus').css('line-height', lineHeight);
+            } else if (input.match(/^\d+px$/ig)) {
+                var lineHeight = input.match(/\d+/g)[0] + 'px';
+                $('.text-edit-div.focus').css('line-height', lineHeight);
+            } else if (input.match(/^\d+$/ig)) {
+                $('.text-edit-div.focus').css('line-height', input);
+            }
+        }
+    });
+
+    /**
+     * 层级设置 - 升
+     */
+    $('#tool-text-coml').bind('click', function(e) {
+        var index = $('.text-edit-block.focus').css('z-index');
+        if (index == 'auto') {
+            $('.text-edit-block.focus').css('z-index', 1);
+        } else {
+            var target = parseInt(index) + 1;
+            $('.text-edit-block.focus').css('z-index', target);
+        }
+    });
+
+    /**
+     * 层级设置 - 降
+     */
+    $('#tool-text-comr').bind('click', function(e) {
+        var index = $('.text-edit-block.focus').css('z-index');
+        if (index == 'auto') {
+            $('.text-edit-block.focus').css('z-index', 1);
+        } else {
+            var target = parseInt(index) + 1;
+            $('.text-edit-block.focus').css('z-index', target);
+        }
+    });
 }
 
 exports.bind = bind;
