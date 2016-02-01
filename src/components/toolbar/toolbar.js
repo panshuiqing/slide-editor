@@ -38,5 +38,5 @@ module.exports = {
 		// 初始化表情组件
 		var faceCmp = require('../tool-face/tool-face.js');
 		faceCmp.init('.toolbar-list', '.toolbar-panel');
-	}	
+	}
 }

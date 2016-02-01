@@ -57,6 +57,7 @@ var bind = function(dom) {
                 var padding = input.match(/\d+/g)[0];
                 $('.text-edit-div.focus').css('padding', padding);
             }
+            $(this).blur();
         }
     });
 
@@ -73,6 +74,7 @@ var bind = function(dom) {
                 console.log(input);
                 $('.text-edit-block.focus').css('opacity', input);
             }
+            $(this).blur();
         }
     });
 
@@ -91,6 +93,7 @@ var bind = function(dom) {
             } else if (input.match(/^\d+$/ig)) {
                 $('.text-edit-div.focus').css('line-height', input);
             }
+            $(this).blur();
         }
     });
 

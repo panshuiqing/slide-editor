@@ -22,6 +22,9 @@ module.exports = {
      * @api public
      */
     bind: function() {
+
+        var inputFocus = false;
+
         /**
          * 绑定文本框事件
          */
@@ -133,7 +136,7 @@ module.exports = {
         /**
          * 拉伸编辑框 
          */
-        $(document).on('mousedown', '.anchor-block', function(e) {
+        $(document).on('mousedown', '.anchor-block', function(e) {            
             var $anchor = $(this);
             var isMove = true;
             var firstX = e.pageX;
@@ -188,11 +191,20 @@ module.exports = {
             var code = e.keyCode;
             if (code == 8) {
                 var editing = $('.edit-block.focus').children('.edit-div').attr('contenteditable');
-                if (editing == 'false') {
+                if (editing == 'false' && inputFocus == false) {
                     $('.edit-block.focus').remove();
                     return false;
                 }
             }
-        }
+        };
+
+        /**
+         * 焦点状态监听
+         */
+        $('input').focus(function() {
+            inputFocus = true;
+        }).blur(function() {
+            inputFocus = false;
+        });
     }
 }

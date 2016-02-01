@@ -5,7 +5,7 @@
 		<input type="text" class="toolbar-panel-input">
 	</div>	
 	<div class="toolbar-panel-block">
-		<h4 class="toolbar-panel-title">内间距</h4>
+		<h4 class="toolbar-panel-title">内边距</h4>
 		<input type="text" class="toolbar-panel-input" id='tool-text-padding'>
 	</div>	
 	<div class="toolbar-panel-block">
