@@ -50,6 +50,29 @@ module.exports = {
         codeCmp.bind('.edit-page.active');
 
         /**
+         * 焦点状态监听
+         */
+        $('input').focus(function() {
+            inputFocus = true;
+        }).blur(function() {
+            inputFocus = false;
+        });
+
+        /**
+         * 键盘删除按键
+         */
+        document.onkeydown = function(e) {
+            var code = e.keyCode;
+            if (code == 8) {
+                var editing = $('.edit-block.focus').children('.edit-div').attr('contenteditable');
+                if (editing == 'false' && inputFocus == false) {
+                    $('.edit-block.focus').remove();
+                    return false;
+                }
+            }
+        };
+
+        /**
          * 销毁对象
          */
         $(document).on('mousedown', '.edit-container', function() {
@@ -136,7 +159,7 @@ module.exports = {
         /**
          * 拉伸编辑框 
          */
-        $(document).on('mousedown', '.anchor-block', function(e) {            
+        $(document).on('mousedown', '.anchor-block', function(e) {
             var $anchor = $(this);
             var isMove = true;
             var firstX = e.pageX;
@@ -182,29 +205,6 @@ module.exports = {
                 $(document).unbind('mousemove');
             })
             e.stopPropagation();
-        });
-
-        /**
-         * 键盘删除按键
-         */
-        document.onkeydown = function(e) {
-            var code = e.keyCode;
-            if (code == 8) {
-                var editing = $('.edit-block.focus').children('.edit-div').attr('contenteditable');
-                if (editing == 'false' && inputFocus == false) {
-                    $('.edit-block.focus').remove();
-                    return false;
-                }
-            }
-        };
-
-        /**
-         * 焦点状态监听
-         */
-        $('input').focus(function() {
-            inputFocus = true;
-        }).blur(function() {
-            inputFocus = false;
         });
     }
 }
