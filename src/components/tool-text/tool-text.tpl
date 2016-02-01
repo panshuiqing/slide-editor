@@ -9,23 +9,23 @@
 <div class="toolbar-text-panel toolbar-block-panel">
 	<div class="toolbar-panel-block">
 		<h4 class="toolbar-panel-title">颜色</h4>
-		<input type="text" class="toolbar-panel-input focus">
+		<input type="text" class="toolbar-panel-input">
 	</div>	
 	<div class="toolbar-panel-block">
 		<h4 class="toolbar-panel-title">内间距</h4>
-		<input type="text" class="toolbar-panel-input">
+		<input type="text" class="toolbar-panel-input" id='tool-text-padding'>
 	</div>	
 	<div class="toolbar-panel-block">
 		<h4 class="toolbar-panel-title">透明度</h4>
-		<input type="text" class="toolbar-panel-input">
+		<input type="text" class="toolbar-panel-input" id='tool-text-opacity'>
 	</div>		
 	<div class="toolbar-panel-block">
 		<h4 class="toolbar-panel-title">文本颜色</h4>
-		<input type="text" class="toolbar-panel-input">
+		<input type="text" class="toolbar-panel-input" id='tool-text-color'>
 	</div>		
 	<div class="toolbar-panel-block">
 		<h4 class="toolbar-panel-title">文本间距</h4>
-		<input type="text" class="toolbar-panel-input">
+		<input type="text" class="toolbar-panel-input" id='tool-text-lineheight'>
 	</div>	
 	<div class="toolbar-panel-block">
 		<h4 class="toolbar-panel-title">层级</h4>
