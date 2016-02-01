@@ -8,6 +8,7 @@
     height: 100%;
     background: #333333;
     z-index: 101;
+    /* 菜单按钮 */
     .toolbar-list {
         position: absolute;
         top: 0;
@@ -16,6 +17,7 @@
         bottom: 0;
         padding: 25px;
         background: #333333;
+        z-index: 101;
         /* 菜单选项 */
         .toolbar-block-option {
             border: 2px solid transparent;
@@ -43,7 +45,17 @@
                 line-height: 34px;
             }
         }
-        /* 菜单详情面板 */
+    }
+    /* 菜单详情面板 */
+    .toolbar-panel {
+        position: absolute;
+        top: 0;
+        left: 120px;
+        right: 0;
+        bottom: 0;
+        background: #333333;
+        z-index: 100;
+
         .toolbar-block-panel {
             background: #333;
             color: #FFF;
@@ -52,14 +64,15 @@
             top: 0;
             bottom: 0;
             text-align: center;
-            z-index: -1;
+            z-index: 0;
             transition: all 0.2s;
             opacity: 0.8;
             left: -160px;
             padding: 35px 15px 15px 15px;
+            
             /* 面板中每一部分 */
             .toolbar-panel-block {
-                padding-bottom: 20px;
+                padding-bottom: 20px;                
                 .toolbar-panel-title {
                     font-size: 12px;
                     font-weight: normal;
@@ -74,10 +87,10 @@
                     background: #4e4e4e;
                     color: #fff;
                     cursor: pointer;
-                    border: 1px solid #4e4e4e;         
+                    border: 1px solid #4e4e4e;
                     &:focus {
-                        border: 1px solid #4FBAEF;         
-                    }           
+                        border: 1px solid #4FBAEF;
+                    }
                 }
                 .toolbar-panel-btn {
                     width: 48%;
@@ -85,7 +98,7 @@
                     font-weight: bold;
                     padding: 5px 0;
                     cursor: pointer;
-                    display: inline-block;                    
+                    display: inline-block;
                 }
                 .toolbar-panel-coml {
                     float: left;

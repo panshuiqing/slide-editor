@@ -1,10 +1,3 @@
-<div class="toolbar-block-option toolbar-text">
-	<a href="#" id='toolbar-text-btn'>
-		<span class='toolbar-icon-block'>
-			<i class="iconfont">&#xe604;</i>
-		</span>
-	<span class='toolbar-text-block'>文本</span></a>
-</div>
 <!-- 工具详情 -->
 <div class="toolbar-text-panel toolbar-block-panel" id='toolbar-text-panel'>
 	<div class="toolbar-panel-block">

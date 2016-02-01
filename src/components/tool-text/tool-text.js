@@ -10,10 +10,12 @@
  * @param  {dom} dom
  * @api public
  */
-var init = function(dom) {
+var init = function(menu, panel) {
     require("!style!css!sass!./tool-text.scss");
-    var tpl = require('./tool-text.tpl');
-    $(dom).append(tpl());
+    var menuTpl = require('./tool-text-menu.tpl');
+    $(menu).append(menuTpl());
+    var detailTpl = require('./tool-text-panel.tpl');
+    $(panel).append(detailTpl());
 }
 exports.init = init;
 
@@ -27,7 +29,7 @@ var bind = function(dom) {
      * 点击文本菜单创建文本框
      */
     $('#toolbar-text-btn').click(function() {
-        var tpl = require('./text.tpl');
+        var tpl = require('./text-frame.tpl');
         $(dom).append(tpl());
         var index = $(dom).attr('edit-index');
         var target = parseInt(index) + 1;
@@ -39,7 +41,9 @@ var bind = function(dom) {
      * 点击文本框弹出详情面板
      */
     $(document).on('click', '.text-edit-block', function(e) {
-        $('#toolbar-text-panel').css('left', '120px');
+        // 隐藏工具条详情面板
+        $('.toolbar-block-panel').css('left', '-160px');
+        $('#toolbar-text-panel').css('left', '0px');
         e.stopPropagation();
     });
 

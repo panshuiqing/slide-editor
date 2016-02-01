@@ -1,10 +1,3 @@
-<div class="toolbar-block-option toolbar-image">
-	<a href="#" id='toolbar-img-btn'>
-		<span class='toolbar-icon-block'>
-			<i class="iconfont">&#xe602;</i>
-		</span>
-	<span class='toolbar-text-block'>图片</span></a>
-</div>
 <!-- 工具详情 -->
 <div class="toolbar-image-panel toolbar-block-panel" id='toolbar-image-panel'>
 	<div class="toolbar-panel-block">

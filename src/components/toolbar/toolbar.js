@@ -16,27 +16,27 @@ module.exports = {
 		$(dom).append(tpl());
 
 		// 初始化设置组件
-		var textCmp = require('../tool-setting/tool-setting.js');
-		textCmp.init('.toolbar-list');		
+		var setCmp = require('../tool-setting/tool-setting.js');
+		setCmp.init('.toolbar-list', '.toolbar-panel');		
 
 		// 初始化文本组件
 		var textCmp = require('../tool-text/tool-text.js');
-		textCmp.init('.toolbar-list');		
+		textCmp.init('.toolbar-list', '.toolbar-panel');		
 
 		// 初始化图片组件
 		var textCmp = require('../tool-image/tool-image.js');
-		textCmp.init('.toolbar-list');		
+		textCmp.init('.toolbar-list', '.toolbar-panel');		
 
 		// 初始化iframe组件
-		var textCmp = require('../tool-iframe/tool-iframe.js');
-		textCmp.init('.toolbar-list'); 
+		/*var textCmp = require('../tool-iframe/tool-iframe.js');
+		textCmp.init('.toolbar-list', '.toolbar-panel'); 
 
 		// 初始化code组件
 		var textCmp = require('../tool-code/tool-code.js');
-		textCmp.init('.toolbar-list');
+		textCmp.init('.toolbar-list', '.toolbar-panel');
 
 		// 初始化表情组件
 		var textCmp = require('../tool-face/tool-face.js');
-		textCmp.init('.toolbar-list');
+		textCmp.init('.toolbar-list', '.toolbar-panel');*/
 	}	
 }

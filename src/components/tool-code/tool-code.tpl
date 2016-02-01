@@ -1,3 +1,4 @@
+<!-- code按钮 -->
 <div class="toolbar-block-option toolbar-code">
 	<a href="#" id='toolbar-code-btn'>
 		<span class='toolbar-icon-block'>

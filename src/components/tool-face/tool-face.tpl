@@ -1,3 +1,4 @@
+<!-- 表情按钮 -->
 <div class="toolbar-block-option toolbar-code">
 	<a href="#">
 		<span class='toolbar-icon-block'>

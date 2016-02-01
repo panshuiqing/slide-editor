@@ -9,8 +9,8 @@ module.exports = {
 	/**
 	 * 初始化
 	 */
-	init: function(dom) {
-		var tpl = require('./tool-setting.tpl');
-		$(dom).append(tpl());
+	init: function(menu, panel) {
+		var tpl = require('./tool-setting-menu.tpl');
+		$(menu).append(tpl());
 	}	
 }
