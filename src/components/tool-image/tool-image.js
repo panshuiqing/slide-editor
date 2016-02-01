@@ -11,6 +11,7 @@
  * @api public
  */
 var init = function(dom) {
+    require("!style!css!sass!./tool-image.scss");
     var tpl = require('./tool-image.tpl');
     $(dom).append(tpl());
 }
@@ -38,8 +39,18 @@ var bind = function(dom) {
      * 点击文本框弹出详情面板
      */
     $(document).on('click', '.image-edit-block', function(e) {
-        $('.toolbar-text-panel').css('left', '120px');
+        $('#toolbar-image-panel').css('left', '120px');
         e.stopPropagation();
+    });
+
+    /**
+     * 链接地址设置
+     */
+    $('#tool-image-src').bind('keypress', function(e) {
+        if (e.keyCode == "13") {
+            var input = $(this).val();
+            $('.img-edit-div.focus img').attr('src', input);
+        }
     });
 
 }

@@ -109,9 +109,9 @@ var bind = function(dom) {
     $('#tool-text-comr').bind('click', function(e) {
         var index = $('.text-edit-block.focus').css('z-index');
         if (index == 'auto') {
-            $('.text-edit-block.focus').css('z-index', 1);
+            $('.text-edit-block.focus').css('z-index', -1);
         } else {
-            var target = parseInt(index) + 1;
+            var target = parseInt(index) - 1;
             $('.text-edit-block.focus').css('z-index', target);
         }
     });

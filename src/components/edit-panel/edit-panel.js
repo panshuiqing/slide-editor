@@ -62,7 +62,7 @@ module.exports = {
                 $('#cke_' + editor).remove();
             }
             // 隐藏工具条详情面板
-            $('.toolbar-text-panel').css('left', '-160px');
+            $('.toolbar-block-panel').css('left', '-160px');
         });
 
         /**
